@@ -206,8 +206,8 @@ function challengeDetails() {
 
         if (challenge.type === 'Non Deterministic') {
             const numValue = Number(stateValue)
-            if (isNaN(numValue) || numValue < 0 || numValue > 10) {
-                alert('Please enter a number between 0 and 10')
+            if (isNaN(numValue) || numValue < 0 || numValue > 5) {
+                alert('Please enter a number between 0 and 5')
                 return
             }
         }
@@ -219,9 +219,9 @@ function challengeDetails() {
             return
         }
         //Start transaction
-        const result = await sendTransaction(amount)
-        console.log(result)
-
+        // const result = await sendTransaction(amount)
+        // console.log(result)
+        
         setSelectedRegions([...selectedRegions, {
             state: selectedState,
             value: stateValue,
@@ -339,16 +339,16 @@ function challengeDetails() {
                                             <label className="block text-sm font-medium text-gray-700 mb-2">
                                                 {challenge.type === 'Deterministic' 
                                                     ? 'Enter yes/no:' 
-                                                    : 'Enter value (0-10):'}
+                                                    : 'Enter value (0-5):'}
                                             </label>
                                             <input
                                                 type={challenge.type === 'Deterministic' ? 'text' : 'number'}
                                                 value={stateValue}
                                                 onChange={(e) => setStateValue(e.target.value)}
                                                 className="w-full px-3 py-2 border rounded-md"
-                                                placeholder={challenge.type === 'Deterministic' ? 'yes/no' : '0-10'}
+                                                placeholder={challenge.type === 'Deterministic' ? 'yes/no' : '0-5'}
                                                 min={challenge.type === 'Deterministic' ? undefined : "0"}
-                                                max={challenge.type === 'Deterministic' ? undefined : "10"}
+                                                max={challenge.type === 'Deterministic' ? undefined : "5"}
                                             />
                                         </div>
                                         <div>

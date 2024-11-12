@@ -1,7 +1,7 @@
 {
     "challenges": [
       {
-        "id": "CAM001",
+        "id": "1",
         "name": "How was the Rootstock Dev experience in Devcon 2024, Japan?",
         "status": "Active",
         "type": "Non Deterministic",
