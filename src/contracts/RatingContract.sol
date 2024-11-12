@@ -5,6 +5,8 @@ import "hardhat/console.sol";
 
 contract RatingContract {
 
+    address public owner;
+
     // Challenge struct
     struct Challenge {
         string name;
@@ -34,47 +36,50 @@ contract RatingContract {
     mapping(uint256 => Challenge) public challenges;
 
     // challenge created event
-    event ChallengeCreate(uint256, string, uint256);
-    event ChallengeCompleted(uint256 _challengeId, uint256 _outcome, bool isExpired);
+    event ChallengeCreated(uint256, string, uint256);
+    event RatingAdded(uint256 _challengeId, uint256 _rating, address user, uint256 shares);
+    event OutcomeAnnounced(uint256 _challengeId, uint256 _outcome, bool isExpired);
     event PaymentSettled(uint256 challengeId, address indexed user, uint256 payout);
 
+    // Constructor
+    constructor() {
+        owner = msg.sender;
+    }
     // Create a new challenge with initial shares as zero
     function createChallenge(uint256 challengeId, string memory _name, uint64 _expiry) public {
         Challenge memory _challenge = Challenge(_name,_expiry, 0, 0,0,false);
         challenges[challengeId] = _challenge;
-        emit ChallengeCreate(challengeId, _name, _expiry);
+        emit ChallengeCreated(challengeId, _name, _expiry);
     }
 
     // Add rating for a challenge
-    function addRating(uint256 _challengeId, uint256 _rating, address user) public payable {
+    function addRating(uint256 _challengeId, uint256 _rating, address user, uint256 shares) public payable {
         Challenge memory _challenge = challenges[_challengeId];
-        require(msg.value > 0, "You must send some Ether to rate the challenge");
+        require(shares > 0, "You must send some Ether to rate the challenge");
         require(_challenge.expiry > block.timestamp, "Challenge expired");
         require((_rating <= maxRange), "Rating should be between 0 and 5");
         Rating[] storage _ratings = ratings[_challengeId];
-         // Check if user already rated for the challenge
+        // Check if user already rated for the challenge
         bool userFound = false;
-        for (uint256 i = 0; i < _ratings.length; i++) 
+        for (uint256 i = 0; i <= _ratings.length; i++) 
         {
             if (_ratings[i].user == user) {
                 // User already rated, so just update the shares
-                _ratings[i].shares += msg.value;
+                _ratings[i].shares += shares;
                 ratings[_challengeId][i]=_ratings[i];
                 userFound = true;
                 break;
             }
             // first time rating, so just add new entry for rating
-            Rating memory rating = Rating(user,_rating, msg.value, 0);
+            Rating memory rating = Rating(user,_rating, shares, 0);
             // append rating
             ratings[_challengeId].push(rating);
         }
 
-
-        // transfer bidding share to smart contract
-        (bool success, ) = address(this).call{value: msg.value}("");
-        console.log("success: ",success);
-         // Update the challenge's total shares
-        _challenge.totalShares += msg.value;
+        // Update the challenge's total shares
+        _challenge.totalShares += shares;
+        challenges[_challengeId] = _challenge;
+        emit RatingAdded(_challengeId, _rating, user, shares);
     }
 
     // Set outcome of a challenge
@@ -85,11 +90,11 @@ contract RatingContract {
         outcome[_challengeId] = _outcome;
         _challenge.isExpired = true;
         challenges[_challengeId] = _challenge;
-        emit ChallengeCompleted(_challengeId,_outcome, _challenge.isExpired);
+        emit OutcomeAnnounced(_challengeId,_outcome, _challenge.isExpired);
     }
 
     // payment settlement once challenge is complete or outcome announced
-    function settlePayments(uint256 _challengeId) public {
+    function settlePayments(uint256 _challengeId) public returns (bool){
         Challenge memory _challenge = challenges[_challengeId];
         require(_challenge.isExpired == true, "Challenge is not expired yet");
         // get all ratings
@@ -117,6 +122,10 @@ contract RatingContract {
         // update challenge
         challenges[_challengeId] = _challenge;
 
+        // update ratings
+        ratings[_challengeId] = _ratings;
+        
+
         // calculate earnings and payout
         for (uint256 i=0; i < _ratings.length; i++)
         {
@@ -131,8 +140,9 @@ contract RatingContract {
             (bool success, ) = payable(_ratings[i].user).call{value: payout}("");
             console.log("success: ",success);
             emit PaymentSettled(_challengeId, _ratings[i].user, payout);
+            
         }
-        
+        return true;
     }
 
     receive() external payable {} // The contract can now receive Ether from other EOAs and Smart Contracts

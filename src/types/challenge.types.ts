@@ -1,7 +1,11 @@
 export interface Challenge {
     id: number;
     expiry: number;
-    totalShares: string;
+    totalShares: number;
+    name: string;
+    totalPenalities: number;
+    totalRemainingShares: number;
+    isExpired: boolean;
 }
 
 export interface Rating {

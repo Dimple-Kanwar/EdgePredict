@@ -24,7 +24,7 @@ const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   networks: {
     citrea: {
-      url: "https://rpc.testnet.citrea.xyz",
+      url: `${process.env.CITREA_RPC_URL}`,
       chainId: 5115,
       accounts: [`${process.env.PRIVATE_KEY}`],
     },
@@ -36,7 +36,7 @@ const config: HardhatUserConfig = {
     fractal:{
       chainId: 31,
       accounts: [`${process.env.PRIVATE_KEY}`],
-      url: `${process.env.ROOTSTOCK_RPC_URL}`
+      url: `${process.env.FRACTRAL_RPC_URL}`
     }
   },
 };
