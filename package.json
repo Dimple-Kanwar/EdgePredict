@@ -7,6 +7,7 @@
     "build": "tsc",
     "test": "npx hardhat test",
     "compile": "npx hardhat compile",
+    "dev": "nodemon src/index.ts",
     "deploy:rootstock": "npx hardhat ignition deploy ./src/ignition/modules/Rating.ts --network rootstock"
   },
   "devDependencies": {

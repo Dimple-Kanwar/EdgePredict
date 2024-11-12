@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useParams , Link} from 'react-router-dom'
 import {ethers } from 'ethers'
 import Countdown from 'react-countdown';
@@ -163,21 +164,47 @@ function challengeDetails() {
             const signer =  await provider.getSigner();
     
             // Create transaction object
-            const tx = {
-                to: import.meta.env.VITE_RECEIVERS_ADDRESS, // Replace with the address to send to
-                value: ethers.parseEther(amount.toString()),
+                    
+            let data = JSON.stringify({
+                challengeId: 1, 
+                rating: 1, 
+                user: accounts[0], 
+                value: amount.toString()
+            });
+
+            let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'http://localhost:3000/api/rating',
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            data : data
             };
+            // return axios.request(config)
+            // .then((response) => {
+            // console.log(JSON.stringify(response.data));
+            // return response.data;
+            // })
+            // .catch((error) => {
+            // console.log(error);
+            // return null;
+            // });
+
+            // const tx = {
+            //     to: import.meta.env.VITE_RECEIVERS_ADDRESS, // Replace with the address to send to
+            //     value: ethers.parseEther(amount.toString()),
+            // };
     
-            // Send transaction
-            const transaction = await signer.sendTransaction(tx);
+            // // Send transaction
+            // const transaction = await signer.sendTransaction(tx);
             
-            // Wait for transaction to be mined
-            const receipt = await transaction.wait();
+            // // Wait for transaction to be mined
+            // const receipt = await transaction.wait();
     
             return {
                 success: true,
-                hash: transaction.hash,
-                receipt
+                hash: "0x4f44dbca7cb482fbdec3889a4159b64d91e3154679f8f47c3a7ebef970486e86"
             };
     
         } catch (error) {
@@ -219,9 +246,10 @@ function challengeDetails() {
             return
         }
         //Start transaction
-        // const result = await sendTransaction(amount)
-        // console.log(result)
-        
+        const result = await sendTransaction(amount)
+        console.log(result)
+
+
         setSelectedRegions([...selectedRegions, {
             state: selectedState,
             value: stateValue,
@@ -385,6 +413,7 @@ function challengeDetails() {
                                                     <p className="text-sm text-gray-500">
                                                         Value: {region.value}
                                                     </p>
+                                                    <p>Transaction Hash: {region.txHash}</p>
                                                 </div>
                                                 <p className="text-blue-600 font-medium">
                                                     ${region.bid}

@@ -13,9 +13,9 @@ const ABI = [
 ];
 
 export class EthereumService {
-    private provider: ethers.JsonRpcProvider;
-    private contract: ethers.Contract;
-    private wallet: ethers.Wallet;
+    provider: ethers.JsonRpcProvider;
+    contract: ethers.Contract;
+    wallet: ethers.Wallet;
 
     constructor() {
         this.provider = new ethers.JsonRpcProvider(CONFIG.RPC_URL);
@@ -35,8 +35,9 @@ export class EthereumService {
         }
     }
 
-    async addRating(challengeId: number, rating: number, user: string, shares: string): Promise<string> {
+    async addBid(challengeId: number, rating: number, user: string, shares: string): Promise<string> {
         try {
+            console.log("test")
             const tx = await this.contract.addRating(challengeId, rating, user, {
                 value: ethers.parseEther(shares)
             });

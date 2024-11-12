@@ -3,6 +3,7 @@ import { ChallengeController } from '../controllers/challenge.controller';
 
 const router = Router();
 const challengeController = new ChallengeController();
+// console.log({challengeController});
 router.post('/challenge/create', challengeController.createChallenge);
 router.post('/rating',  challengeController.addRating);
 router.get('/challenge/:challengeId',  challengeController.getChallenge);
