@@ -1,0 +1,103 @@
+.svg-map {
+    width: 100%;
+    height: 100%;
+    stroke: #000;
+    stroke-width: 1;
+}
+
+.svg-map__location {
+    fill: #e2e8f0;
+    cursor: pointer;
+    transition: fill 0.2s;
+}
+
+.active .svg-map__location:hover {
+    fill: #93c5fd !important;
+}
+
+.fill-blue-200 {
+    fill: #22c55e !important;
+}
+
+.fill-yellow-200 {
+    fill: #f97316 !important;
+}
+
+/* Inactive challenge map style */
+.inactive .svg-map__location {
+    cursor: not-allowed;
+}
+
+.svg-map__location:hover {
+    opacity: 0.8;
+}
+/* .svg-map {
+    width: 100%;
+    height: 100%;
+    stroke: #000;
+    stroke-width: 1;
+}
+
+.svg-map__location {
+    fill: #e2e8f0;
+    cursor: pointer;
+    transition: fill 0.2s;
+}
+
+.svg-map__location:hover {
+    fill: #93c5fd !important;
+}
+
+
+.fill-blue-200 {
+    fill: #22c55e !important; 
+}
+
+
+.fill-yellow-200 {
+    fill: #f97316 !important;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .svg-map {
+    width: 100%;
+    height: 100%;
+    stroke: #fff;
+    stroke-width: 1;
+}
+
+.svg-map__location {
+    fill: #f3f4f6;
+    cursor: pointer;
+    transition: fill 0.2s;
+}
+
+.svg-map__location:hover {
+    fill: #e5e7eb;
+}
+
+.fill-blue-200 {
+    fill: #bfdbfe !important;
+}
+
+.fill-yellow-200 {
+    fill: #fef08a !important;
+} */

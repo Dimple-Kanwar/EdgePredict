@@ -1,0 +1,214 @@
+{
+    "challenges": [
+      {
+        "id": "CAM001",
+        "name": "How was the Rootstock Dev experience in Devcon 2024, Japan?",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "Japan"
+      },
+      {
+        "id": "CAM002",
+        "name": "How will you rate the Squid Games S02 based in your country?",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "World"
+      },
+      {
+        "id": "CAM003",
+        "name": "How do you think BOB compare to other Bitcoin ecosystems? 1-very bad 5-very good",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "World"
+      },
+      {
+        "id": "CAM004",
+        "name": "How was the Citrea Bitcoin Hackathon experience in Bangkok?",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "India"
+      },
+      {
+        "id": "CAM005",
+        "name": "Which country do you think Devcon Thailand got it’s maximum representation from?",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "World"
+      },
+      {
+        "id": "CAM006",
+        "name": "Tech Startup Summit",
+        "status": "Ended",
+        "type": "Deterministic",
+        "geolocation": "India"
+      },
+      {
+        "id": "CAM007",
+        "name": "How do you think is the Bitcoin adoption in your state?",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "Canada"
+      },
+      {
+        "id": "CAM008",
+        "name": "Cherry Blossom Festival",
+        "status": "Ended",
+        "type": "Deterministic",
+        "geolocation": "Japan"
+      },
+      {
+        "id": "CAM009",
+        "name": "Cricket World Cup",
+        "status": "Active",
+        "type": "Deterministic",
+        "geolocation": "India"
+      },
+      {
+        "id": "CAM010",
+        "name": "Global Music Awards",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "World"
+      },
+      {
+        "id": "CAM011",
+        "name": "Oktoberfest Digital",
+        "status": "Active",
+        "type": "Deterministic",
+        "geolocation": "Germany"
+      },
+      {
+        "id": "CAM012",
+        "name": "Silicon Valley Summit",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "United States"
+      },
+      {
+        "id": "CAM013",
+        "name": "Royal Art Exhibition",
+        "status": "Ended",
+        "type": "Deterministic",
+        "geolocation": "United Kingdom"
+      },
+      {
+        "id": "CAM014",
+        "name": "Maple Syrup Festival",
+        "status": "Active",
+        "type": "Deterministic",
+        "geolocation": "Canada"
+      },
+      {
+        "id": "CAM015",
+        "name": "Beach Volleyball Tournament",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "Brazil"
+      },
+      {
+        "id": "CAM016",
+        "name": "Opera House Spectacular",
+        "status": "Active",
+        "type": "Deterministic",
+        "geolocation": "Australia"
+      },
+      {
+        "id": "CAM017",
+        "name": "Fashion Week Paris",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "France"
+      },
+      {
+        "id": "CAM018",
+        "name": "Bollywood Film Festival",
+        "status": "Active",
+        "type": "Deterministic",
+        "geolocation": "India"
+      },
+      {
+        "id": "CAM019",
+        "name": "Robotics Competition",
+        "status": "Ended",
+        "type": "Non Deterministic",
+        "geolocation": "Japan"
+      },
+      {
+        "id": "CAM020",
+        "name": "Digital Art Showcase",
+        "status": "Active",
+        "type": "Deterministic",
+        "geolocation": "World"
+      },
+      {
+        "id": "CAM021",
+        "name": "Beer Festival Munich",
+        "status": "Ended",
+        "type": "Deterministic",
+        "geolocation": "Germany"
+      },
+      {
+        "id": "CAM022",
+        "name": "Tech Startup Pitch",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "United States"
+      },
+      {
+        "id": "CAM023",
+        "name": "London Fashion Week",
+        "status": "Active",
+        "type": "Deterministic",
+        "geolocation": "United Kingdom"
+      },
+      {
+        "id": "CAM024",
+        "name": "Hockey Tournament",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "Canada"
+      },
+      {
+        "id": "CAM025",
+        "name": "Carnival Rio",
+        "status": "Ended",
+        "type": "Deterministic",
+        "geolocation": "Brazil"
+      },
+      {
+        "id": "CAM026",
+        "name": "Surfing Championship",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "Australia"
+      },
+      {
+        "id": "CAM027",
+        "name": "Wine Tasting Tour",
+        "status": "Active",
+        "type": "Deterministic",
+        "geolocation": "France"
+      },
+      {
+        "id": "CAM028",
+        "name": "Yoga & Wellness Expo",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "India"
+      },
+      {
+        "id": "CAM029",
+        "name": "Manga Convention",
+        "status": "Active",
+        "type": "Deterministic",
+        "geolocation": "Japan"
+      },
+      {
+        "id": "CAM030",
+        "name": "Global NFT Summit",
+        "status": "Active",
+        "type": "Non Deterministic",
+        "geolocation": "World"
+      }
+    ]
+  }
