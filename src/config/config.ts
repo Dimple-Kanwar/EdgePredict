@@ -1,0 +1,6 @@
+export const CONFIG = {
+    CONTRACT_ADDRESS: "YOUR_CONTRACT_ADDRESS",
+    RPC_URL: "YOUR_RPC_URL",
+    PRIVATE_KEY: process.env.PRIVATE_KEY || "YOUR_PRIVATE_KEY",
+    PORT: process.env.PORT || 3000
+};  
