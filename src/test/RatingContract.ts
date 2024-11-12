@@ -1,13 +1,7 @@
-import {
-  time,
-  loadFixture,
-} from "@nomicfoundation/hardhat-toolbox/network-helpers";
-import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { expect } from "chai";
 import hre from "hardhat";
-import { BaseContract, ContractTransactionResponse, Contract, Overrides, ethers } from "ethers";
+import { BaseContract, ContractTransactionResponse, Contract, ethers } from "ethers";
 import { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/signers";
-import moment from "moment";
 import { Challenge } from "../types/challenge.types";
 import { RatingContract } from "../../typechain-types";
 

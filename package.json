@@ -1,9 +1,13 @@
 {
   "name": "edge-predict",
+  "main": "src/app.ts",
   "scripts": {
-    "deploy:citrea": "npx hardhat ignition deploy ./ignition/modules/Rating.ts",
-    "start": "npm start",
-    "deploy:rootstock": "npx hardhat ignition deploy ./ignition/modules/Rating.ts"
+    "deploy:citrea": "npx hardhat ignition deploy ./src/ignition/modules/Rating.ts --network citrea",
+    "start": "ts-node src/app.ts",
+    "build": "tsc",
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "deploy:rootstock": "npx hardhat ignition deploy ./src/ignition/modules/Rating.ts --network rootstock"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",

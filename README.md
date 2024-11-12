@@ -22,3 +22,9 @@ npx hardhat ignition deploy ./ignition/modules/Rating.ts --network citrea
 # deploy on rootstock network
 npx hardhat ignition deploy ./ignition/modules/Rating.ts --network rootstock
 
+
+// "scripts": {
+  //   "deploy:citrea": "npx hardhat ignition deploy ./src/ignition/modules/Rating.ts --network citrea",
+  //   "start": "tsc ./src/app.ts",
+  //   "deploy:rootstock": "npx hardhat ignition deploy ./src/ignition/modules/Rating.ts --network rootstock"
+  // },
