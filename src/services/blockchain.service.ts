@@ -19,8 +19,8 @@ export class EthereumService {
 
     constructor() {
         this.provider = new ethers.JsonRpcProvider(CONFIG.RPC_URL);
-        this.wallet = new ethers.Wallet(CONFIG.PRIVATE_KEY, this.provider);
-        this.contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, ABI, this.wallet);
+        this.wallet = new ethers.Wallet(CONFIG.PRIVATE_KEY!, this.provider);
+        this.contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS!, ABI, this.wallet);
     }
 
     async createChallenge(challengeId: number, name: string): Promise<string> {
