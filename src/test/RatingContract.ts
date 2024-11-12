@@ -5,7 +5,7 @@ import {
 import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { expect } from "chai";
 import hre from "hardhat";
-import { BaseContract, ContractTransactionResponse, Contract, Overrides } from "ethers";
+import { BaseContract, ContractTransactionResponse, Contract, Overrides, ethers } from "ethers";
 import { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/signers";
 import moment from "moment";
 import { Challenge } from "../types/challenge.types";
@@ -64,7 +64,7 @@ describe("RatingContract", function () {
 
     it("Should bid the challenge", async function () {
       const challengeId = 1;
-      const shares = 1;
+      const shares = ethers.parseEther("10000000000000000000");
       for (let index = 0; index <= 5; index++) {
         expect(await ratingContract.addRating(challengeId, index, `user${index}.address`, shares))
           .to.emit(ratingContract, "RatingAdded")
